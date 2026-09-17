@@ -1,6 +1,10 @@
 import { Task, CreateTaskPayload, UpdateTaskPayload, TasksResponse, TaskResponse, Stats } from '../types';
 
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+const API_BASE = import.meta.env.VITE_API_URL || (
+  import.meta.env.PROD
+    ? 'https://taskflow-backend-2a2w.onrender.com/api'
+    : '/api'
+);
 
 class ApiError extends Error {
   status: number;
@@ -12,7 +16,7 @@ class ApiError extends Error {
 
 async function request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
   const url = `${API_BASE}${endpoint}`;
-  
+
   const config: RequestInit = {
     headers: {
       'Content-Type': 'application/json',
@@ -22,7 +26,7 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
   };
 
   const response = await fetch(url, config);
-  
+
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({ message: 'Request failed' }));
     throw new ApiError(errorData.message || `HTTP ${response.status}`, response.status);
