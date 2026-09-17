@@ -1,7 +1,6 @@
 # Taskflow — Professional Task Management System
 
-> Built for **kLab Tech Upskill Program** Final Selection Challenge  
-> A clean, production-ready full-stack application with React, Express, and Neon PostgreSQL.
+
 
 ![Taskflow Preview](https://img.shields.io/badge/Stack-React%20%7C%20Express%20%7C%20Neon%20PG-111111?style=for-the-badge)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.4-3178C6?style=flat-square)
