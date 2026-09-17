@@ -1,6 +1,6 @@
 import { Task, CreateTaskPayload, UpdateTaskPayload, TasksResponse, TaskResponse, Stats } from '../types';
 
-const API_BASE = import.meta.env.VITE_API_URL || (
+const API_BASE = import.meta.env.API_URL || (
   import.meta.env.PROD
     ? 'https://taskflow-backend-2a2w.onrender.com/api'
     : '/api'
